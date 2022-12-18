@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -9,7 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class UserComponent implements OnInit {
   user: { id: number; name: string };
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.user = {
@@ -19,5 +19,10 @@ export class UserComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       (this.user.id = params['id']), (this.user.name = params['name']);
     });
+  }
+
+  onLoadUsers() {
+    //complex calculations, other tasks,....
+    this.router.navigate(['/users']);
   }
 }
