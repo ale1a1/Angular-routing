@@ -16,13 +16,13 @@ export class UserComponent implements OnInit {
       id: this.route.snapshot.params['id'],
       name: this.route.snapshot.params['name'],
     };
-    // this.route.params.subscribe((params: Params) => {
-    //   (this.user.id = params['id']), (this.user.name = params['name']);
-    // });
+    this.route.params.subscribe((params: Params) => {
+      (this.user.id = params['id']), (this.user.name = params['name']);
+    });
   }
 
-  onLoadUsers() {
-    //complex calculations, other tasks,....
-    this.router.navigate(['/users']);
-  }
+  // onLoadUsers() {
+  //   //complex calculations, other tasks,....
+  //   this.router.navigate(['/users']);
+  // }
 }

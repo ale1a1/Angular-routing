@@ -21,7 +21,7 @@ export class EditServerComponent implements OnInit {
 
   ngOnInit() {
     // let id = this.route.snapshot.params['id'];
-    this.server = this.serversService.getServer(3);
+    this.server = this.serversService.getServer(1);
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
   }
